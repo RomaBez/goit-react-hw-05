@@ -1,0 +1,72 @@
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.backLink {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
+.poster {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.movieInfo {
+  list-style: none;
+  padding: 0;
+}
+
+.movieInfo li {
+  margin-bottom: 10px;
+}
+
+.movieTitle {
+  font-size: 2em;
+  margin: 0;
+  color: #333;
+}
+
+.movieOverview {
+  font-size: 1.2em;
+  color: #555;
+}
+
+.movieStatus {
+  font-size: 1em;
+  color: #777;
+}
+
+.navLinks {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.navLink {
+  color: #007bff;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+}
+
+.navLink:hover,
+.navLink.active {
+  background-color: #007bff;
+  color: white;
+}

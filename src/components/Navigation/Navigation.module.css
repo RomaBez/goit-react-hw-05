@@ -1,0 +1,18 @@
+header {
+  background-color: azure;
+}
+
+.link {
+  text-decoration: none;
+  color: darkblue;
+}
+
+.navDirection {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.active {
+  color: orangered;
+}
