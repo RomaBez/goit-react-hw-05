@@ -1,9 +1,18 @@
 header {
   background-color: azure;
+  padding: 12px;
 }
 
 .link {
   text-decoration: none;
+  color: darkblue;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.link:hover {
+  background-color: lightblue;
   color: darkblue;
 }
 
@@ -15,4 +24,5 @@ header {
 
 .active {
   color: orangered;
+  font-weight: bold;
 }
