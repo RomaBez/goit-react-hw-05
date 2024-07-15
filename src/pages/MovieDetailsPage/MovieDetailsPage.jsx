@@ -5,12 +5,8 @@ import {
   useParams,
   useLocation,
   Outlet,
-  Routes,
-  Route,
 } from "react-router-dom";
 import axios from "axios";
-import MovieCast from "../../components/MovieCast/MovieCast";
-import MovieReviews from "../../components/MovieReviews/MovieReviews";
 import { IMG_BASE_URL } from "../../components/MovieCast/MovieCast";
 import Loader from "../../components/Loader/Loader";
 import css from "./MovieDetailsPage.module.css";
@@ -18,8 +14,9 @@ import css from "./MovieDetailsPage.module.css";
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
   const location = useLocation();
-  const backLinkRef = useRef(location.state?.from ?? "/movies");
+  const backRefLink = useRef(location.state?.from ?? "/movies");
   const [movie, setMovie] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -35,17 +32,18 @@ export default function MovieDetailsPage() {
         );
         setMovie(response.data);
       } catch (error) {
-        console.error("Failed to fetch movie details", error);
+        setError("Failed to fetch movie details. Please try again later.");
       }
     };
     fetchMovieDetails();
   }, [movieId]);
 
+  if (error) return <div>{error}</div>;
   if (!movie) return <Loader />;
 
   return (
     <div className={css.container}>
-      <Link to={backLinkRef.current} className={css.backLink}>
+      <Link to={backRefLink.current} className={css.backLink}>
         Go back
       </Link>
       <img
@@ -85,10 +83,6 @@ export default function MovieDetailsPage() {
           Reviews
         </NavLink>
       </nav>
-      <Routes>
-        <Route path="cast" element={<MovieCast />} />
-        <Route path="reviews" element={<MovieReviews />} />
-      </Routes>
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>

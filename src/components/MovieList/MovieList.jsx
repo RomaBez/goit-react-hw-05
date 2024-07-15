@@ -9,7 +9,7 @@ export default function MovieList({ movies }) {
       {movies.map((movie) => (
         <li key={movie.id} className={css.movieItem}>
           <Link
-            to={`/movie/${movie.id}`}
+            to={`/movies/${movie.id}`}
             state={{ from: location.pathname + location.search }}
             className={css.movieLink}
           >

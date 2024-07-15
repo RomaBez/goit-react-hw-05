@@ -46,6 +46,7 @@ export default function MoviesPage() {
 
       if (response.data.results.length === 0) {
         setError("No results found for your search! Please try again.");
+        setMovies([]);
       } else {
         setMovies(response.data.results);
       }
@@ -59,7 +60,6 @@ export default function MoviesPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSearchParams({ query });
-    searchMovies(query);
   };
 
   return (
@@ -78,7 +78,7 @@ export default function MoviesPage() {
       </form>
 
       {loading && <Loader />}
-      {error && <ErrorMessage />}
+      {error && <ErrorMessage message={error} />}
       <MovieList movies={movies} />
     </div>
   );
