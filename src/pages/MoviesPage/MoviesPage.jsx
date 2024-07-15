@@ -78,7 +78,7 @@ export default function MoviesPage() {
       </form>
 
       {loading && <Loader />}
-      {error && <ErrorMessage message={error} />}
+      {error && <ErrorMessage />}
       <MovieList movies={movies} />
     </div>
   );
